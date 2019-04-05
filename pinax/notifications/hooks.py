@@ -33,7 +33,7 @@ class DefaultHookSet(object):
                     "scoping_content_type": None,
                     "scoping_object_id": None
                 })
-            default = (NOTICE_MEDIA_DEFAULTS[medium] <= notice_type.default)
+            default = (NOTICE_MEDIA_DEFAULTS[str(medium)] <= notice_type.default)
             kwargs.update({"send": default})
             setting = user.noticesetting_set.create(**kwargs)
             return setting
