@@ -38,7 +38,7 @@ class NoticeSettingsView(TemplateView):
         notice_type = NoticeType.objects.get(pk=pk)
         setting = self.setting_for_user(notice_type, medium_id)
         # settings change not permitted when setting.send == None
-        if(setting.send != None):
+        if setting.send is not None:
             if val == "on":
                 setting.send = True
             else:
